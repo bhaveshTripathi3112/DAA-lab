@@ -1,1 +1,54 @@
+/******************************************************************************
 
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<vector>
+
+using namespace std;
+
+vector<int>findtriplet(int arr[],int n){
+    vector<int>ans(3,0);
+    for(int k = 2;k<n ;k++){
+        for(int i = 0;i<k;i++){
+            for(int j = i+1 ; j< k ; j++){
+                if(arr[i] + arr[j] == arr[k]){
+                    ans[0]=i;
+                    ans[1]=j;
+                    ans[2]=k;
+                    return ans;
+                }
+            }
+        }
+    }
+    ans[0]=-1;
+    ans[1]=-1;
+    ans[2]=-1;
+    
+    return ans;
+}
+int main()
+{
+    
+    int n;
+    cout<<"enter the size of array :";
+    cin>>n;
+    int arr[n];
+    for(int i = 0 ; i<n ; i++)
+    {
+        cin>>arr[i];
+    }
+    vector<int> ans= findtriplet(arr,n);
+    
+    if(ans[0]==-1){
+        cout<<endl<<"sequence not found";
+    
+    }
+    else{
+        cout<<ans[0]<< " "<<ans[1]<<" "<<ans[2];
+    }
+}
