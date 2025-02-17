@@ -1,0 +1,37 @@
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+bool findduplicate(int arr[],int n){
+    vector<int>vect(arr,arr+n);
+    sort(vect.begin(),vect.end());
+    for(int i = 0 ; i<n-1;i++){
+        if(vect[i]==vect[i+1]){
+            return true;
+        }
+        
+    }
+    return false;
+}
+int main()
+{
+    
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i = 0 ; i  < n ; i++){
+        cin>>arr[i];
+    }
+    cout<<"original array : ";
+    for(int i = 0 ; i  < n ; i++){
+        cout<<arr[i]<<" ";
+    }
+    int ans = findduplicate(arr,n);
+    if(ans ==1){
+        cout<<endl<<"duplicate element present";
+    }
+    else{
+        cout<<endl<<"duplicate element not present";
+    }
+    return 0;
+}
