@@ -1,0 +1,36 @@
+#include <iostream>
+#include<vector> 
+#include<string.h>
+#include<algorithm>
+using namespace std;
+void counts(string s){
+    vector<int>count(26,0);
+    int index = 0;
+    while(index < s.size()){
+        count[s[index]-'a']++;
+        index++;
+    }
+    int maxa = 0;
+    index = 0;
+    char ch ;
+    while(index < count.size()){
+        if(count[index]>=2){
+            maxa = max(maxa,count[index]);
+            ch= 'a'+index;
+        }
+        index++;
+    }
+    if(maxa !=0)
+        cout<<endl<< ch<<" "<<maxa;
+    else
+        cout<<"no such element present";
+}
+int main()
+{
+    string s;
+    cout<<"Enter string :";
+    getline(cin ,s);
+    counts(s);
+    
+    return 0;
+}
